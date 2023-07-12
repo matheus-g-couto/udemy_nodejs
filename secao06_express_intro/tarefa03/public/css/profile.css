@@ -1,0 +1,13 @@
+body {
+    background-color: #ff6565;
+
+    font-family: 'Courier New';
+    text-align: center;
+    color: green;
+
+    padding: 1.5em
+}
+
+img {
+    height: 300px;
+}

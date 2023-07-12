@@ -1,0 +1,9 @@
+body {
+    background-color: darkgray;
+
+    font-family: 'Courier New';
+    color: red;
+    text-align: center;
+
+    padding: 1.5em
+}
