@@ -1,0 +1,42 @@
+body {
+    font-family: 'Courier New';
+    background-color: lightgray;
+}
+
+nav {
+    border-bottom: 1px solid darkgray;
+}
+
+.main-btn {
+    color: red;
+    font-size: large;
+}
+
+.produto-wrapper {
+    display: flex;
+    margin: 1em;
+}
+
+img {
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+.produto-info {
+    padding: 0.5em;
+}
+
+.produto-titulo {
+    font-weight: bold;
+}
+
+.prod-title-solo {
+    font-weight: bolder;
+    font-size: x-large;
+    color: green;
+}
+
+.price {
+    font-weight: bold;
+    color: blue;
+}
