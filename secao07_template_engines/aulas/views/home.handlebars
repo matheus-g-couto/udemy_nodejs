@@ -1,0 +1,11 @@
+{{#if approved}}
+<p>Parabéns, o seu cadastro foi aprovado!</p>
+{{else}}
+<p>O seu cadastro necessita de aprovação par acesso total do sistema</p>
+{{/if}}
+
+<p>Eu me chamo {{ user.name }} {{ user.surname }} e tenho {{ user.age }} anos</p>
+
+{{#if auth}}
+<p>Você está autenticado, <a href="/dashboard">clique aqui</a> para acessar a área de membros!</p>
+{{/if}}
