@@ -15,6 +15,7 @@ const User = require('./models/User')
 
 // Import routers
 const thoughtRoutes = require('./routes/thoughtRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
@@ -63,6 +64,8 @@ app.use((req, res, next) => {
 
 // rotas
 app.use('/thoughts', thoughtRoutes)
+app.use('/', authRoutes)
+
 app.get('/', require('./controllers/ThoughtController').showAllThoughts)
 
 conn.sync().then(() => {
