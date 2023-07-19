@@ -9,6 +9,7 @@
     {{!-- CSS files --}}
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/flash-messages.css">
     <link rel="stylesheet" href="/css/dashboard.css">
@@ -28,32 +29,32 @@
         <ul>
             <li><a href="/">Pensamentos</a></li>
             {{#if session.userid}}
-            <li><a href="/thoughts/dashboard">Dashboard</a></li>
-            <li><a href="/logout">Sair</a></li>
+                <li><a href="/thoughts/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Sair</a></li>
             {{else}}
-            <li><a href="/login">Entrar</a></li>
-            <li><a href="/register">Cadastrar</a></li>
+                <li><a href="/login">Entrar</a></li>
+                <li><a href="/register">Cadastrar</a></li>
             {{/if}}
         </ul>
     </nav>
 
     <div class="container">
         {{#if messages.message}}
-        <div class="message">
-            {{ messages.message }}
-        </div>
+            <div class="message">
+                {{ messages.message }}
+            </div>
         {{/if}}
 
         {{#if messages.error}}
-        <div class="message error-message">
-            {{ messages.error }}
-        </div>
+            <div class="message error-message">
+                {{ messages.error }}
+            </div>
         {{/if}}
 
         {{#if messages.success}}
-        <div class="message success-message">
-            {{ messages.success }}
-        </div>
+            <div class="message success-message">
+                {{ messages.success }}
+            </div>
         {{/if}}
 
         {{{ body }}}
