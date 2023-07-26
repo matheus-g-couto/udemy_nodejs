@@ -16,7 +16,9 @@ app.use(express.static('public'))
 
 // routes
 const UserRoutes = require('./routes/UserRoutes')
+const PetRoutes = require('./routes/PetRoutes')
 app.use('/users', UserRoutes)
+app.use('/pets', PetRoutes)
 
 app.listen(port, () => {
     console.log(`Back-end executando na porta ${port}`)
