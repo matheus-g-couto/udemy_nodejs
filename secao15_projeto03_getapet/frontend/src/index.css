@@ -1,6 +1,8 @@
 :root {
   --blue: #16479d;
   --yellow: #ffd400;
+  --confirm-green: #25b456;
+  --confirm-green-hover: #1c8a42;
 }
 
 * {
