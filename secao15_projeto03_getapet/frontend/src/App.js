@@ -4,28 +4,36 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Container from './components/layout/Container'
+import Message from './components/layout/Message'
 
 // pages
 import Login from './components/pages/Auth/Login'
 import Register from './components/pages/Auth/Register'
 import Home from './components/pages/Home'
 
+// context
+import { UserProvider } from './context/UserContext'
+
 function App() {
   return (
     <Router>
-      <Navbar />
+      <UserProvider>
+        <Navbar />
 
-      <Container>
-        <Routes>
-          <Route path='/login' element={<Login />} />
+        <Message />
 
-          <Route path='/register' element={<Register />} />
+        <Container>
+          <Routes>
+            <Route path='/login' element={<Login />} />
 
-          <Route path='/' element={<Home />} />
-        </Routes>
-      </Container>
+            <Route path='/register' element={<Register />} />
 
-      <Footer />
+            <Route path='/' element={<Home />} />
+          </Routes>
+        </Container>
+
+        <Footer />
+      </UserProvider>
     </Router>
   );
 }

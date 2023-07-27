@@ -1,17 +1,31 @@
-import Input from "../../form/Input"
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import Input from '../../form/Input'
 
 import styles from '../../form/Form.module.css'
 
-function Register() {
-    function handleChanges(e) {
+// context
+import { Context } from '../../../context/UserContext'
 
+function Register() {
+    const [user, setUser] = useState({})
+    const { register } = useContext(Context)
+
+    function handleChanges(e) {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        register(user)
     }
 
     return (
         <section className={styles.form_container}>
             <h1>Cadastrar</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
                     text="Nome"
