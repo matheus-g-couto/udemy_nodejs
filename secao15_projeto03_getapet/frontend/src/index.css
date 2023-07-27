@@ -1,0 +1,24 @@
+:root {
+  --blue: #16479d;
+  --yellow: #ffd400;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+  box-sizing: border-box;
+
+
+}
+
+h1 {
+  color: var(--blue);
+  margin-bottom: 1em;
+  font-size: 2.1em;
+}
+
+.bold {
+  font-weight: bold;
+  color: var(--blue);
+}
