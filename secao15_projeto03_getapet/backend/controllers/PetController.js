@@ -6,7 +6,7 @@ const ObjectId = require('mongoose').Types.ObjectId
 const getToken = require('../helpers/get-token')
 const getUserByToken = require('../helpers/get-user-by-token')
 
-function validatePetInfo(name, age, weight, color, images, res) {
+function validatePetInfo(name, age, weight, color, res) {
     if (!name) {
         res.status(422).json({ message: "O nome é obrigatório!" })
         return false
@@ -21,10 +21,6 @@ function validatePetInfo(name, age, weight, color, images, res) {
     }
     if (!color) {
         res.status(422).json({ message: "A cor é obrigatória!" })
-        return false
-    }
-    if (images.length == 0) {
-        res.status(422).json({ message: "Pelo menos uma imagem é obrigatória!" })
         return false
     }
 
@@ -68,8 +64,13 @@ module.exports = class PetController {
         // upload de imagens
 
         // validations
-        const isPetValid = validatePetInfo(name, age, weight, color, images, res)
+        const isPetValid = validatePetInfo(name, age, weight, color, res)
         if (!isPetValid) return
+
+        if (images.length == 0) {
+            res.status(422).json({ message: "Pelo menos uma imagem é obrigatória!" })
+            return
+        }
 
         // get pet owner
         const user = await getUserByToken(getToken(req))
@@ -148,7 +149,7 @@ module.exports = class PetController {
         const images = req.files
         const updatedData = {}
 
-        const isPetInfoValid = validatePetInfo(name, age, weight, color, images, res)
+        const isPetInfoValid = validatePetInfo(name, age, weight, color, res)
         if (!isPetInfoValid) return
 
         updatedData.name = name
@@ -156,8 +157,10 @@ module.exports = class PetController {
         updatedData.weight = weight
         updatedData.color = color
 
-        updatedData.images = []
-        images.map(image => updatedData.images.push(image.filename))
+        if (images && images.length > 0) {
+            updatedData.images = []
+            images.map(image => updatedData.images.push(image.filename))
+        }
 
         if (!available) {
             res.status(422).json({ message: 'O status é obrigatório!' })

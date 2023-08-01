@@ -10,7 +10,6 @@ function PetForm({ handleSubmit, petData, btnText }) {
     const [preview, setPreview] = useState([])
     const colors = ["Branco", "Preto", "Cinza", "Marrom", "Caramelo", "Mesclado"]
 
-
     function handleChanges(e) {
         setPet({ ...pet, [e.target.name]: e.target.value })
     }
@@ -38,15 +37,16 @@ function PetForm({ handleSubmit, petData, btnText }) {
                         <img
                             src={URL.createObjectURL(image)}
                             alt={pet.name}
-                            key={`${pet.name}+${index}`} />
-                    )) :
-                    pet.images && pet.images.map((image, index) => {
+                            key={`${pet.name}+${index}`}
+                        />
+                    ))
+                    : pet.images && pet.images.length > 0 && pet.images.map((image, index) => (
                         <img
                             src={`${process.env.REACT_APP_API}/images/pets/${image}`}
                             alt={pet.name}
-                            key={`${pet.name}+${index}`} />
-                    })
-                }
+                            key={`${pet.name}+${index}`}
+                        />
+                    ))}
             </div>
 
             <Input
