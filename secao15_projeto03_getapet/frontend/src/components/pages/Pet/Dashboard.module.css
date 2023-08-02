@@ -82,3 +82,11 @@
     color: #fff;
     background-color: var(--confirm-green);
 }
+
+.contacts {
+    margin-left: 2em;
+}
+
+.contacts p {
+    margin-bottom: 0.5em;
+}
